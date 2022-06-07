@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
 
-from data.prueba import define_group
+import data.prueba as prueba
 
-print(define_group())
+print(prueba.define_group())
