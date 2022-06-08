@@ -3,6 +3,7 @@ from prettytable import PrettyTable
 from helpers.clean_console import clean_console
 from data.transform_data import define_group
 from helpers.full_name import full_name
+from services.get_histogram_per_group import get_histogram_per_group
 from services.get_total_participants import get_total_participants
 from services.participants_list import participants_list
 from services.get_total_participants_per_group import get_total_participants_by_group
@@ -82,7 +83,7 @@ def services_menu(participants):
             winner = get_general_winner(participants)
             print(winner)
         elif option_menu == 9:
-            print('option 9 selected')
+            get_histogram_per_group(groups)
         elif option_menu == 10:
             data = average_time_by_group_and_gender(groups)
             table = PrettyTable([' ', 'Male Time', 'Female Time'])
