@@ -1,4 +1,4 @@
-from data.file_data import get_default_file
+from data.file_data import get_default_file, open_another_file
 from helpers.clean_console import clean_console
 
 
@@ -23,7 +23,13 @@ def file_menu():
             clean_console()
             return data
         elif option_menu == 2:
-            print('cargar otro archivo')
+            
+            try:
+                file_dir = str(input('\nEnter your directory file path: '))
+            except:
+                print('Wrong input. Please enter a directory file path')
+
+            return open_another_file(file_dir)
         elif option_menu == 3:
             option_menu = ''
             clean_console()
