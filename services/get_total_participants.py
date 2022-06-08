@@ -1,5 +1,2 @@
-#!/usr/bin/env python3
-
-import data.prueba as prueba
-
-print(prueba.define_group())
+def get_total_participants(data: dict) -> int:
+    return len(data)
