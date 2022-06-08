@@ -5,11 +5,11 @@ from data.transform_data import define_group
 from helpers.full_name import full_name
 from services.get_total_participants import get_total_participants
 from services.participants_list import participants_list
-from services.get_total_participants_by_group import get_total_participants_by_group
-from services.get_total_participants_by_gender import get_total_participants_by_gender
-from services.get_winners_by_group import get_winners_by_group
-from services.get_winners_by_gender import get_winners_by_gender
-from services.get_winners_by_gender_and_groups import get_winners_by_gender_and_groups
+from services.get_total_participants_per_group import get_total_participants_by_group
+from services.get_total_participants_per_gender import get_total_participants_by_gender
+from services.get_winners_per_group import get_winners_by_group
+from services.get_winners_per_gender import get_winners_by_gender
+from services.get_winners_per_gender_and_groups import get_winners_by_gender_and_groups
 from services.get_general_winner import get_general_winner
 from services.average_time_by_group_and_gender import average_time_by_group_and_gender
 
@@ -59,7 +59,7 @@ def services_menu(participants):
             print(table)
         elif option_menu == 4:
             data = participants_data
-            male, female = get_total_participants_by_gender(data)
+            male, female = get_total_participants_by_gender(data.values())
             table = PrettyTable(['Male', 'Female'])
             table.add_row([male, female])
             print(table)
@@ -85,9 +85,8 @@ def services_menu(participants):
             print('option 9 selected')
         elif option_menu == 10:
             data = average_time_by_group_and_gender(groups)
-            table = PrettyTable([' ', 'Male', 'Female'])
+            table = PrettyTable([' ', 'Male Time', 'Female Time'])
             table.add_rows(data)
-            table.add_column(['junior', 'senior', 'master'])
             print(table)
         elif option_menu == 11:
             clean_console()

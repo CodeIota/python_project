@@ -27,10 +27,10 @@ if __name__=='__main__':
             clean_console()
             file = file_menu()
         elif option == 2:
-            try:
+            # try:
                 clean_console()
                 services_menu(get_person_data(file))
-            except:
+            # except:
                 print('\nPlease to use the services you need a file with data')
         elif option == 3:
             print('Thanks for use my project :)')
